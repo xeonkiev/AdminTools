@@ -1,4 +1,9 @@
-#!/bin/bash
+#!/bin/sh
+# Author       : Damian Le Nouaille
+# Author URI   : http://dln.name
+# Twitter      : http://twitter.com/damln
+# GitHub       : https://github.com/damln
+
 if [ "$USER" != "root" ];then
     echo "Please start the script with ROOT"
     exit
