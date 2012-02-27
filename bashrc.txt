@@ -83,7 +83,7 @@ esac
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     eval "`dircolors -b`"
-    alias ls='ls --color=auto -hX'
+    alias ls='ls --color=auto -hXF'
     alias dir='dir --color=auto'
     alias vdir='vdir --color=auto'
 
@@ -94,9 +94,8 @@ fi
 
 # some more ls aliases
 alias ll='ls -l'
-#alias ll='ls -l'
-#alias la='ls -A'
-#alias l='ls -CF'
+alias la='ls -A'
+alias l='ls -C'
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile

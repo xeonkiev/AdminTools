@@ -48,6 +48,7 @@ $IPTABLES -t filter -A OUTPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
 $IPTABLES -t filter -A INPUT -i lo -j ACCEPT
 $IPTABLES -t filter -A OUTPUT -o lo -j ACCEPT
 $IPTABLES -t filter -A INPUT -p tcp -s localhost -d localhost -j ACCEPT
+$IPTABLES -t filter -A OUTPUT -p tcp -s localhost -d localhost -j ACCEPT
 
 # ICMP (Ping) :
 $IPTABLES -t filter -A INPUT -p icmp -j ACCEPT
@@ -66,5 +67,4 @@ $IPTABLES -t filter -A OUTPUT -p tcp -m multiport --dports 20,21 -j ACCEPT
 $IPTABLES -t filter -A INPUT -p tcp --dport 22 -m state --state NEW -j ACCEPT #ssh_port
 
 $IPTABLES -t filter -A INPUT -p tcp -m multiport --dports 80,443 -j ACCEPT
-#$IPTABLES -t filter -A INPUT -p tcp -m multiport --dports 25,993 -m state --state NEW -j ACCEPT
 

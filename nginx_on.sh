@@ -65,7 +65,7 @@ function makeNging {
 
           access_log  /var/log/nginx/$1.access.log;
           error_log /var/log/nginx/$1.error.log;
-          try_files \$uri \$uri/ /index.php;
+          try_files \$uri \$uri/ /index.php /index.html;
 
           if (\$host = \"www.$1\") {
               rewrite  ^/(.*)$  http://$1/\$1  permanent;

@@ -1,5 +1,4 @@
-﻿#!/bin/sh
-# Author       : Damian Le Nouaille
+﻿# Author       : Damian Le Nouaille
 # Author URI   : http://dln.name
 # Twitter      : http://twitter.com/damln
 # GitHub       : https://github.com/damln
@@ -12,7 +11,6 @@ fi
 if [ ! -f  "$1" ];then
     echo "Need your iptables.sh as argument (needed) and un bashrc file (optional)"
     echo "Example:\n $0 iptables-perso.sh bashrc.txt"
-    exit
 fi
 
 ssh_port_tables="$(awk '/#ssh_port/{print $9}' $1)"
@@ -31,24 +29,7 @@ echo " $USER "
 echo " => Please enter the futur 'sudo' USER name:"
 read use
 
-echo " ----------------------------------------------------------------"
-echo " => Do you want to put $use in the group sudo ?"
-echo " (n/y)"
-read clav2
-
-case "$clav2" in
-    [nN])
-        echo "Please modify the use variable."
-    exit
-    ;;
-    [yY])
-        echo "Processing..."
-    ;;
-    *)
-        echo "Unknow response"
-        exit
-    ;;
-esac
+echo "" 2>errors-deploiement.log
 
 echo " ------------------------------------- "
 echo " Cleaning Debian And Ubuntu Server :"
@@ -175,27 +156,31 @@ Defaults	env_reset
 groupadd sudo
 gpasswd -a $use sudo
 
-echo "- Iptables:"
-newname=`echo "$1" | sed 's/.txt//;s/.sh//'`
-cp "$1" "$newname"
 
-rm /etc/rc*.d/*iptables*
-rm /etc/init.d/*iptables*
+if [ -f "$1" ];then
+    echo "- Iptables:"
+    newname=`echo "$1" | sed 's/.txt//;s/.sh//'`
+    cp "$1" "$newname"
 
-update-rc.d -f "$newname" remove
-rm "/etc/init.d/$newname"
-rm "/etc/init.d/$1"
+    rm /etc/rc*.d/*iptables*
+    rm /etc/init.d/*iptables*
 
-cp "$newname" "/etc/init.d/$newname"
-rm "$newname"
+    update-rc.d -f "$newname" remove
+    rm "/etc/init.d/$newname"
+    rm "/etc/init.d/$1"
 
-chown root:root "/etc/init.d/$newname"
-chmod 755 "/etc/init.d/$newname"
+    cp "$newname" "/etc/init.d/$newname"
+    rm "$newname"
 
-update-rc.d -f "$newname" start 15 1 2 3 4 5 . stop 55 0 6 .
+    chown root:root "/etc/init.d/$newname"
+    chmod 755 "/etc/init.d/$newname"
 
-echo "- Bashrc:"
-if [ "$2" ];then
+    update-rc.d -f "$newname" start 15 1 2 3 4 5 . stop 55 0 6 .
+fi
+
+
+if [ -f "$2" ];then
+    echo "- Bashrc:"
     cat "$2" > /root/.bashrc
     chown 755 /root/.bashrc
     if [ -f "/home/$use/.bashrc" ];then
@@ -209,7 +194,7 @@ echo "- Remove apache sites-enabled:"
 rm /etc/apache2/sites-enabled/*
 mkdir -p /var/www/
 rm /var/www/*
-echo "8-)" > /var/www/index.html
+echo "" > /var/www/index.html
 
 echo "- Cleaning the system:"
 apt-get -y autoremove
@@ -220,10 +205,5 @@ bash /etc/init.d/"$newname"
 
 echo "- Restarting ssh"
 echo "000000000000000000000000000000000000000000000000000000"
-/etc/init.d/ssh restart
 
-echo "
-##################################
-Keep cool.
-Your Server is clean ans safe.
-"
+/etc/init.d/ssh restart

@@ -1,0 +1,182 @@
+#############
+# 5G FIREWALL
+#############
+
+####################
+# 5G:[QUERY STRINGS]
+####################
+
+
+##################
+# 5G:[USER AGENTS]
+##################
+<IfModule mod_setenvif.c>
+ SetEnvIfNoCase User-Agent ^$ keep_out
+ SetEnvIfNoCase User-Agent (casper|cmsworldmap|diavol|dotbot)   keep_out
+ SetEnvIfNoCase User-Agent (flicky|ia_archiver|jakarta|kmccrew) keep_out
+ SetEnvIfNoCase User-Agent (libwww|planetwork|pycurl|skygrid)   keep_out
+ <Limit GET POST PUT>
+  Order Allow,Deny
+  Allow from all
+  Deny from env=keep_out
+ </Limit>
+</IfModule>
+
+######################
+# 5G:[REQUEST STRINGS]
+######################
+<IfModule mod_alias.c>
+ RedirectMatch 403 (https?|ftp|php)\://
+ RedirectMatch 403 /(cgi|https?|ima|ucp)/
+ RedirectMatch 403 (\=\\\'|\=\\%27|/\\\'/?|\)\.css\()$
+ RedirectMatch 403 (\,|//|\)\+|/\,/|\{0\}|\(/\(|\.\.\.|\+\+\+|\|)
+ RedirectMatch 403 \.(cgi|asp|aspx|cfg|dll|exe|jsp|mdb|sql|ini|rar)$
+ RedirectMatch 403 /(contac|fpw|install|pingserver|register)\.php
+ RedirectMatch 403 (base64|crossdomain|localhost|wwwroot)
+ RedirectMatch 403 (eval\(|\_vti\_|\(null\)|echo.*kae)
+ RedirectMatch 403 \.well\-known/host\-meta
+ RedirectMatch 403 /function\.array\-rand
+ RedirectMatch 403 \)\;\$\(this\)\.html\(
+ RedirectMatch 403 proc/self/environ
+ RedirectMatch 403 msnbot\.htm\)\.\_
+ RedirectMatch 403 /ref\.outcontrol
+ RedirectMatch 403 com\_cropimage
+ RedirectMatch 403 indonesia\.htm
+ RedirectMatch 403 \{\$itemURL\}
+ RedirectMatch 403 function\(\)
+ RedirectMatch 403 labels\.rdf
+</IfModule>
+##############################
+# END FIREWALL
+##############################
+
+#################
+# BEGIN WordPress
+#################
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+###############
+# END WordPress
+###############
+
+##################################
+# Protection contre les injections
+##################################
+Options +FollowSymLinks
+RewriteEngine On
+RewriteCond %{QUERY_STRING} (\<|%3C).*script.*(\>|%3E) [NC,OR]
+RewriteCond %{QUERY_STRING} GLOBALS(=|\[|\%[0-9A-Z]{0,2}) [OR]
+RewriteCond %{QUERY_STRING} _REQUEST(=|\[|\%[0-9A-Z]{0,2})
+RewriteRule ^(.*)$ index.php [F,L]
+
+#########################
+# Protection du wp-config
+#########################
+<files wp-config.php>
+order allow,deny
+deny from all
+</files>
+
+#####
+# BAN
+#####
+<Limit GET POST PUT>
+order allow,deny
+allow from all
+deny from 000.000.000
+deny from 000.000.000
+deny from 000.000.000
+deny from 000.000.000
+</LIMIT>
+
+####################################
+# show admin adress in error message
+####################################
+SetEnv SERVER_ADMIN lesly@53mondays.com
+
+############################
+# Prevent Directory Browsing
+############################
+Options All -Indexes
+
+######
+# UTF8
+######
+AddDefaultCharset UTF-8
+
+# STRONG HTACCESS PROTECTION
+############################
+<Files ~ "^.*\.([Hh][Tt][Aa])">
+order allow,deny
+deny from all
+satisfy all
+</Files>
+
+#############
+# Enable GZIP
+#############
+<ifmodule mod_deflate.c>
+AddOutputFilterByType DEFLATE text/text text/html text/plain text/xml text/css application/x-javascript application/javascript
+BrowserMatch ^Mozilla/4 gzip-only-text/html
+BrowserMatch ^Mozilla/4\.0[678] no-gzip
+BrowserMatch \bMSIE !no-gzip !gzip-only-text/html
+</ifmodule>
+#################
+# End Enable GZIP
+#################
+
+######################################
+# Expires Headers - 2678400s = 31 days
+######################################
+<ifmodule mod_expires.c>
+  ExpiresActive On
+  ExpiresDefault "access plus 1 seconds"
+  ExpiresByType text/html "access plus 7200 seconds"
+  ExpiresByType image/gif "access plus 2678400 seconds"
+  ExpiresByType image/jpeg "access plus 2678400 seconds"
+  ExpiresByType image/png "access plus 2678400 seconds"
+  ExpiresByType text/css "access plus 518400 seconds"
+  ExpiresByType text/javascript "access plus 2678400 seconds"
+  ExpiresByType application/x-javascript "access plus 2678400 seconds"
+</ifmodule>
+#################
+# Expires Headers
+#################
+
+###############
+# Cache Headers
+###############
+<ifmodule mod_headers.c>
+  # Cache specified files for 31 days
+  <filesmatch "\.(ico|flv|jpg|jpeg|png|gif|css|swf)$">
+  Header set Cache-Control "max-age=2678400, public"
+  </filesmatch>
+  # Cache HTML files for a couple hours
+  <filesmatch "\.(html|htm)$">
+  Header set Cache-Control "max-age=7200, private, must-revalidate"
+  </filesmatch>
+  # Cache PDFs for a day
+  <filesmatch "\.(pdf)$">
+  Header set Cache-Control "max-age=86400, public"
+  </filesmatch>
+  # Cache Javascripts for 31 days
+  <filesmatch "\.(js)$">
+  Header set Cache-Control "max-age=2678400, private"
+  </filesmatch>
+</ifmodule>
+###############
+# Cache Headers
+###############
+
+###############
+# Expire header
+###############
+Header unset Pragma
+FileETag None
+Header unset ETag
