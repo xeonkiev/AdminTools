@@ -119,7 +119,7 @@ killall php5-fpm 2> /dev/null
 update-rc.d -f bind9 remove
 update-rc.d -f apache2 remove
 
-chmod 755 /etc/init.d/php-fastcgi 
+chmod 755 /etc/init.d/php-fastcgi
 bash /etc/init.d/php-fastcgi restart
 bash /etc/init.d/nginx restart
 

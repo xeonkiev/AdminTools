@@ -65,7 +65,7 @@ dwsync.xml
 *.sql
 *.sqlite
 
-# XCODE : 
+# XCODE :
 *~.nib
 *.pbxuser
 *.perspective
@@ -74,4 +74,3 @@ dwsync.xml
 xcuserdata/
 *.mode1v3
 *.mode2v3
-
