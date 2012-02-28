@@ -1,8 +1,4 @@
-#!/bin/sh
-# Author       : Damian Le Nouaille
-# Author URI   : http://dln.name
-# Twitter      : http://twitter.com/damln
-# GitHub       : https://github.com/damln
+#!/bin/bash
 
 IPTABLES=/sbin/iptables
 # Flush actual tables :

@@ -1,10 +1,5 @@
-#!/bin/sh
-# Author       : Damian Le Nouaille
-# Author URI   : http://dln.name
-# Twitter      : http://twitter.com/damln
-# GitHub       : https://github.com/damln
+#!/bin/bash
 
-# Empty ALL iptables (be careful)
 /sbin/iptables -t filter -F
 /sbin/iptables -F
 /sbin/iptables -t filter -X

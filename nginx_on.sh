@@ -1,8 +1,4 @@
-#!/bin/sh
-# Author       : Damian Le Nouaille
-# Author URI   : http://dln.name
-# Twitter      : http://twitter.com/damln
-# GitHub       : https://github.com/damln
+#!/bin/bash
 
 if [ "$USER" != "root" ];then
   echo "Please start the script with ROOT"
@@ -17,19 +13,19 @@ fi
 function usage {
   echo "
   Usage:
-    
+
     $ sudo bash $0 /path/to/site [option]
-    
+
     or
 
     # bash $0 /path/to/site [option]
-  
+
   Options:
 
     on     -  Create a nginx.conf file in /path/to/file
               Create a symbolic link to /etc/nginx/sites-enabled/
               Restart Nginx
-    
+
     off    -  Delete the symbolic link in /etc/nginx/sites-enabled/
               Restart Nginx
   "

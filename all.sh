@@ -1,11 +1,12 @@
-rm bashrc.txt
-rm debian-cleaner.sh
-rm debian-deploy-nginx.sh
-rm gitignore.txt
-rm htaccess.fat.txt
-rm iptables-stop.sh
-rm iptables.sh
-rm nginx_on.sh
+rm bashrc.txt 2>/dev/null
+rm debian-cleaner.sh 2>/dev/null
+rm debian-deploy-nginx.sh 2>/dev/null
+rm gitignore.txt 2>/dev/null
+rm htaccess.fat.txt 2>/dev/null
+rm iptables-stop.sh 2>/dev/null
+rm iptables.sh 2>/dev/null
+rm nginx_on.sh 2>/dev/null
+
 
 wget https://raw.github.com/damln/AdminTools/master/bashrc.txt
 wget https://raw.github.com/damln/AdminTools/master/debian-cleaner.sh
