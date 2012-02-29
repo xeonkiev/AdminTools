@@ -1,13 +1,8 @@
 #==================================
 # This project :
 
+
 #=================================
-
-# RAILS
-/.bundle
-/log/*.log
-/tmp
-
 # OS :
 .DS_Store*
 .cache
@@ -62,11 +57,9 @@ dwsync.xml
 *.log
 *~
 
-# DATABASE :
+# SQL :
 *.sql
 *.sqlite
-*.sqlite3
-*.rdb
 
 # XCODE :
 *~.nib

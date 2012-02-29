@@ -54,13 +54,6 @@ function makeNging {
   fi
 
   echo "
-
-
-  upstream myhost {
-    # PERL OR NODE
-    # server 127.0.0.1:3000;
-  }
-
   server {
           listen       80;
 
@@ -74,24 +67,9 @@ function makeNging {
               rewrite  ^/(.*)$  http://$1/\$1  permanent;
           }
 
-          ### ======================= () =========
-
           location / {
               root   $current_folder;
               index  index.html index.htm index.php;
-
-                if (!-e \$request_filename) {
-                    # WORDPRESS
-                    # rewrite  ^/(.*)\$  /index.php?q=\$1  last;
-
-                    # PERL OR NODE
-                    #  proxy_read_timeout 300;
-                    #  proxy_pass http://127.0.0.1:3000;
-                    #  proxy_set_header Host $host;
-                    #  proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-                    #  proxy_set_header X-Forwarded-HTTPS 0;
-                }
-
           }
 
           location ~ \.php$ {
@@ -107,27 +85,19 @@ function makeNging {
               include fastcgi_params;
           }
 
-
-          ### ======================= Security =========
+          # Security
           location ~ /\.ht {
               deny  all;
           }
 
-         if ($request_method !~ ^(GET|HEAD|POST)$ ) {
-             return 444;
-         }
+          # Stuffs
+          location = /favicon.ico {
+                  access_log	 off;
+                  return	 204;
+          }
 
-         if ($http_user_agent ~* LWP::Simple|BBBike|msnbot|scrapbot) {
-                return 403;
-         }
-
-         if ( $http_referer ~* (babes|forsale|girl|jewelry|love|nudit|organic|poker|porn|sex|teen) ) {
-             return 403;
-         }
-
-
-        ### ======================= SSL =========
         #listen   443;
+
         #ssl  on;
         #ssl_certificate  cert.pem;
         #ssl_certificate_key  cert.key;
@@ -137,6 +107,7 @@ function makeNging {
         #ssl_protocols  SSLv3 TLSv1;
         #ssl_ciphers  ALL:!ADH:!EXPORT56:RC4+RSA:+HIGH:+MEDIUM:+LOW:+SSLv3:+EXP;
         #ssl_prefer_server_ciphers   on;
+
   }
 
   " > "nginx.conf"

@@ -1,16 +1,13 @@
 #!/bin/bash
 
 IPTABLES=/sbin/iptables
-
-# Flush :
-$IPTABLES -F
-$IPTABLES -X
+# Flush actual tables :
 $IPTABLES -t filter -F
+$IPTABLES -F
+
+# Flush permanent tables :
 $IPTABLES -t filter -X
-$IPTABLES -t nat -F
-$IPTABLES -t nat -X
-$IPTABLES -t mangle -F
-$IPTABLES -t mangle -X
+$IPTABLES -X
 
 # DROP any connexions :
 $IPTABLES -t filter -P INPUT DROP
@@ -39,6 +36,7 @@ fi
 # -------------------------------------------------
 # Local zone
 # Don't Break connexions:
+
 $IPTABLES -t filter -A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
 $IPTABLES -t filter -A OUTPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
 
@@ -49,27 +47,20 @@ $IPTABLES -t filter -A INPUT -p tcp -s localhost -d localhost -j ACCEPT
 $IPTABLES -t filter -A OUTPUT -p tcp -s localhost -d localhost -j ACCEPT
 
 # ICMP (Ping) :
-
-$IPTABLES -t filter -A INPUT -p icmp -j DROP
-$IPTABLES -t filter -A INPUT -p icmp --icmp-type echo-reply -j ACCEPT
-$IPTABLES -t filter -A INPUT -p icmp --icmp-type destination-unreachable -j ACCEPT
-$IPTABLES -t filter -A INPUT -p icmp --icmp-type time-exceeded -j ACCEPT
-# $IPTABLES -t filter -A INPUT -p icmp --icmp-type echo-request -j ACCEPT
+$IPTABLES -t filter -A INPUT -p icmp -j ACCEPT
 
 # DNS (apt-get) :
-$IPTABLES -t filter -A OUTPUT -p udp --dport 53 -m state --state NEW -j ACCEPT
-$IPTABLES -t filter -A OUTPUT -p tcp --dport 53 -m state --state NEW -j ACCEPT
+$IPTABLES -t filter -A OUTPUT -p udp --dport 53 -j ACCEPT
 
 # WWW (apt-get) :
-$IPTABLES -t filter -A OUTPUT -p tcp -m multiport --dports 80,443 -m state --state NEW -j ACCEPT
+$IPTABLES -t filter -A OUTPUT -p tcp -m multiport --dports 80,443 -j ACCEPT
 
 # FTP (apt-get) :
-$IPTABLES -t filter -A OUTPUT -p tcp -m multiport --dports 20,21 -m state --state NEW -j ACCEPT
+$IPTABLES -t filter -A OUTPUT -p tcp -m multiport --dports 20,21 -j ACCEPT
 
 # ---------------------------------------------
 # Your zone :
 $IPTABLES -t filter -A INPUT -p tcp --dport 22 -m state --state NEW -j ACCEPT #ssh_port
-$IPTABLES -t filter -A INPUT -p tcp --dport 80 -m state --state NEW -m recent --set
-$IPTABLES -t filter -A INPUT -p tcp --dport 80 -m state --state NEW -m recent --update --seconds 60  --hitcount 60 -j DROP
-$IPTABLES -t filter -A INPUT -p tcp -m multiport --dports 80,443 -m state --state NEW -j ACCEPT
+
+$IPTABLES -t filter -A INPUT -p tcp -m multiport --dports 80,443 -j ACCEPT
 

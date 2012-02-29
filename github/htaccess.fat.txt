@@ -2,42 +2,10 @@
 # 5G FIREWALL
 #############
 
-#################
-# BEGIN WordPress
-#################
-<IfModule mod_rewrite.c>
-RewriteEngine On
-RewriteBase /
-RewriteRule ^index\.php$ - [L]
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule . /index.php [L]
-</IfModule>
-###############
-# END WordPress
-###############
-
 ####################
 # 5G:[QUERY STRINGS]
 ####################
 
-<IfModule mod_rewrite.c>
- RewriteEngine On
- RewriteBase /
- RewriteCond %{QUERY_STRING} (environ|localhost|mosconfig|scanner) [NC,OR]
- RewriteCond %{QUERY_STRING} (menu|mod|path|tag)\=\.?/? [NC,OR]
- RewriteCond %{QUERY_STRING} boot\.ini  [NC,OR]
- RewriteCond %{QUERY_STRING} echo.*kae  [NC,OR]
- RewriteCond %{QUERY_STRING} etc/passwd [NC,OR]
- RewriteCond %{QUERY_STRING} \=\\%27$   [NC,OR]
- RewriteCond %{QUERY_STRING} \=\\\'$    [NC,OR]
- RewriteCond %{QUERY_STRING} \.\./      [NC,OR]
- RewriteCond %{QUERY_STRING} \?         [NC,OR]
- RewriteCond %{QUERY_STRING} \:         [NC,OR]
- RewriteCond %{QUERY_STRING} \[         [NC,OR]
- RewriteCond %{QUERY_STRING} \]         [NC]
- RewriteRule .* - [F]
-</IfModule>
 
 ##################
 # 5G:[USER AGENTS]
@@ -82,6 +50,20 @@ RewriteRule . /index.php [L]
 # END FIREWALL
 ##############################
 
+#################
+# BEGIN WordPress
+#################
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+###############
+# END WordPress
+###############
 
 ##################################
 # Protection contre les injections
@@ -116,7 +98,7 @@ deny from 000.000.000
 ####################################
 # show admin adress in error message
 ####################################
-#SetEnv SERVER_ADMIN
+SetEnv SERVER_ADMIN lesly@53mondays.com
 
 ############################
 # Prevent Directory Browsing
