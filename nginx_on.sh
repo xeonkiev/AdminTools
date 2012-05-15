@@ -94,18 +94,19 @@ function makeNging {
 
           }
 
-          location ~ \.php$ {
+          ## ======== PHP =============
+          # location ~ \.php$ {
 
-              if (!-f \$request_filename) {
-                   return 404;
-              }
+          #     if (!-f \$request_filename) {
+          #          return 404;
+          #     }
 
-              root   $current_folder;
-              fastcgi_pass   127.0.0.1:9000;
-              fastcgi_index  index.php;
-              fastcgi_param  SCRIPT_FILENAME  \$document_root\$fastcgi_script_name;
-              include fastcgi_params;
-          }
+          #     root   $current_folder;
+          #     fastcgi_pass   127.0.0.1:9000;
+          #     fastcgi_index  index.php;
+          #     fastcgi_param  SCRIPT_FILENAME  \$document_root\$fastcgi_script_name;
+          #     include fastcgi_params;
+          # }
 
 
           ### ======================= Security =========
@@ -113,17 +114,17 @@ function makeNging {
               deny  all;
           }
 
-         if ($request_method !~ ^(GET|HEAD|POST)$ ) {
-             return 444;
-         }
+         # if ($request_method !~ ^(GET|HEAD|POST|PUT|D)$ ) {
+         #     return 444;
+         # }
 
          if ($http_user_agent ~* LWP::Simple|BBBike|msnbot|scrapbot) {
                 return 403;
          }
 
-         if ( $http_referer ~* (babes|forsale|girl|jewelry|love|nudit|organic|poker|porn|sex|teen) ) {
-             return 403;
-         }
+         # if ( $http_referer ~* (babes|forsale|girl|jewelry|love|nudit|organic|poker|porn|sex|teen) ) {
+         #     return 403;
+         # }
 
 
         ### ======================= SSL =========
