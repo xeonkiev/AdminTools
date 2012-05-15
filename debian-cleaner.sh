@@ -191,6 +191,8 @@ fi
 
 echo "- Remove apache sites-enabled:"
 rm /etc/apache2/sites-enabled/*
+rm /etc/nginx/sites-enabled/*
+
 mkdir -p /var/www/
 rm /var/www/*
 echo "" > /var/www/index.html

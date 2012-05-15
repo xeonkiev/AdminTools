@@ -1,0 +1,28 @@
+server {
+        listen       80 default;
+        listen   [::]:80 default ipv6only=on; ## listen for ipv6
+
+        server_name exemple.com www.exemple.com;
+
+        access_log  /var/log/nginx/localhost.access.log;
+        error_log /var/log/nginx/localhost.error.log;
+        try_files $uri $uri/ /index.php;
+
+        location / {
+            root   /var/www;
+            index  index.html index.htm index.php;
+        }
+
+        location ~ \.php$ {
+          fastcgi_pass   127.0.0.1:9000;
+          fastcgi_index  index.php;
+          fastcgi_param  SCRIPT_FILENAME  /var/www/$fastcgi_script_name;
+          include fastcgi_params;
+         }
+
+
+        # Security
+        location ~ /\.ht {
+            deny  all;
+        }
+}
