@@ -1,6 +1,9 @@
 #!/bin/bash
 
-if [ "$USER" != "root" ]; then
-    echo "Please start the script with ROOT"
-    exit
+if [ -x 'wget' ];then
+    COMMANDWEB="wget"
+else
+    COMMANDWEB="curl -OL"
 fi
+
+echo $COMMANDWEB
