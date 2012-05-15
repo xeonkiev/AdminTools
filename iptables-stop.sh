@@ -1,17 +1,19 @@
 #!/bin/bash
 
-/sbin/iptables -F
-/sbin/iptables -X
-/sbin/iptables -t filter -F
-/sbin/iptables -t filter -X
-/sbin/iptables -t nat -F
-/sbin/iptables -t nat -X
-/sbin/iptables -t mangle -F
-/sbin/iptables -t mangle -X
+IPTABLES=/sbin/iptables
 
-/sbin/iptables -t filter -P INPUT ACCEPT
-/sbin/iptables -t filter -P FORWARD ACCEPT
-/sbin/iptables -t filter -P OUTPUT ACCEPT
-/sbin/iptables -P INPUT ACCEPT
-/sbin/iptables -P FORWARD ACCEPT
-/sbin/iptables -P OUTPUT ACCEPT
+$IPTABLES -F
+$IPTABLES -X
+$IPTABLES -t filter -F
+$IPTABLES -t filter -X
+$IPTABLES -t nat -F
+$IPTABLES -t nat -X
+$IPTABLES -t mangle -F
+$IPTABLES -t mangle -X
+
+$IPTABLES -t filter -P INPUT ACCEPT
+$IPTABLES -t filter -P FORWARD ACCEPT
+$IPTABLES -t filter -P OUTPUT ACCEPT
+$IPTABLES -P INPUT ACCEPT
+$IPTABLES -P FORWARD ACCEPT
+$IPTABLES -P OUTPUT ACCEPT

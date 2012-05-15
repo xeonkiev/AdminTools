@@ -175,7 +175,6 @@ if [ -f "$1" ];then
     update-rc.d -f "$newname" start 15 1 2 3 4 5 . stop 55 0 6 .
 fi
 
-
 if [ -f "$2" ];then
     echo "- Bashrc:"
     cat "$2" > /root/.bashrc
