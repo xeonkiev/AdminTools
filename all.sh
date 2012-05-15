@@ -1,5 +1,10 @@
+#!/bin/bah
 
-if [ -x 'wget' ];then
+command_exists () {
+    type "$1" &> /dev/null ;
+}
+
+if command_exists wget ;then
     COMMANDWEB="wget"
 else
     COMMANDWEB="curl -OL"
