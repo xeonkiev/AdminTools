@@ -137,6 +137,9 @@ apt-get -y install screen
 apt-get -y install sudo
 apt-get -y install aptitude
 apt-get -y install curl
+apt-get -y install gcc
+apt-get -y install bzip2
+apt-get -y install make
 
 echo "- Secure software:"
 chmod 750 /usr/bin/gcc*
