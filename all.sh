@@ -5,7 +5,7 @@ command_exists () {
 }
 
 if command_exists wget ;then
-    COMMANDWEB="wget"
+    COMMANDWEB="wget --no-check-certificate"
 else
     COMMANDWEB="curl -OL"
 fi
