@@ -140,6 +140,10 @@ apt-get -y install curl
 apt-get -y install gcc
 apt-get -y install bzip2
 apt-get -y install make
+apt-get -y install build-essential bison openssl libreadline6 libreadline6-dev
+apt-get -y install git-core zlib1g zlib1g-dev libssl-dev libyaml-dev libsqlite3-0 libsqlite3-dev sqlite3 libxml2-dev libxslt-dev autoconf libc6-dev ncurses-dev
+
+
 
 echo "- Secure software:"
 chmod 750 /usr/bin/gcc*
@@ -201,6 +205,7 @@ echo "- Cleaning the system:"
 apt-get -y autoremove
 apt-get -y autoclean
 apt-get -y clean
+
 
 bash /etc/init.d/"$newname"
 
