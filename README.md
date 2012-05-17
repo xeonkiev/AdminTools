@@ -1,7 +1,11 @@
 # Debian Install
 
-How to start a new Server ?
-This is a basic installation.
+
+Every admin / dev have his own deployment system. This are some basics files to inspire you :)
+
+Feel free to fork, update, and contribute.
+
+Cheers. ⚓
 
 ### OS :
     
@@ -56,3 +60,32 @@ Please do not use root for that :
     rvm install 1.9.3
     gem install bundle
 
+
+### Helpers
+
+###### You can use the nginx_on.sh script for activate some website :
+
+    bash github/nginx_on.sh /var/www/my_web_site.com/ on
+    
+
+Or Disable :
+
+    bash github/nginx_on.sh /var/www/my_web_site.com/ off
+    
+
+###### Disable all Iptables rules :
+
+    sudo bash github/iptables-stop.sh
+
+###### Enable them again :
+
+    sudo bash /etc/init.d/iptables
+
+###### A simple .gitignore
+
+    cp github/gitignore.txt .gitignore
+ 
+ 
+###### A big .htaccess
+
+    cp github/htaccess.fat.txt .htaccess
