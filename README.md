@@ -47,11 +47,12 @@ Please do not use root for that :
 
     curl -L get.rvm.io | bash -s stable
 
-    source ~/.bachrc
+    source ~/.bashrc
     source ~/.profile
-
-    rvm install zlib
+    
+    sudo chmod 755 /usr/bin/make /usr/bin/gcc
+    
+    rvm pkg install zlib
     rvm install 1.9.3
     gem install bundle
-
 

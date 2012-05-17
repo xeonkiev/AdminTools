@@ -24,6 +24,5 @@ $COMMANDWEB https://raw.github.com/damln/AdminTools/master/iptables.sh
 
 $COMMANDWEB https://raw.github.com/damln/AdminTools/master/nginx_on.sh
 $COMMANDWEB https://raw.github.com/damln/AdminTools/master/nginx.conf
-$COMMANDWEB https://raw.github.com/damln/AdminTools/master/nginx_localhost.http
 
 cd ..
