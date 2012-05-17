@@ -56,10 +56,10 @@ function makeNging {
   echo "
 
 
-  upstream myhost {
+  #upstream myhost {
     # PERL OR NODE
     # server 127.0.0.1:3000;
-  }
+  #}
 
   server {
           listen       80;
@@ -108,15 +108,15 @@ function makeNging {
           #     include fastcgi_params;
           # }
 
-        if ($request_method !~ ^(GET|HEAD|POST|PUT|DELETE)$ ) {
+        if (\$request_method !~ ^(GET|HEAD|POST|PUT|DELETE)$ ) {
             return 424;
          }
 
-         if ($http_user_agent ~* LWP::Simple|BBBike|msnbot|scrapbot) {
+         if (\$http_user_agent ~* LWP::Simple|BBBike|msnbot|scrapbot) {
             return 403;
          }
 
-         if ( $http_referer ~* (babes|forsale|girl|jewelry|love|nudit|organic|poker|porn|sex|teen) ) {
+         if ( \$http_referer ~* (babes|forsale|girl|jewelry|love|nudit|organic|poker|porn|sex|teen) ) {
             return 403;
          }
 
