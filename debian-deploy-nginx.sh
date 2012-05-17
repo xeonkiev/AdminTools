@@ -64,8 +64,6 @@ exit $RETVAL
 
 rm /etc/nginx/sites-enabled/*
 
-cp ./nginx_localhost.http /etc/nginx/sites-enabled/localhost
-
 echo "== Cleaning:"
 apt-get -y autoremove
 apt-get -y autoclean
@@ -89,7 +87,7 @@ update-rc.d -f apache2 remove
 
 chmod 755 /etc/init.d/php-fastcgi
 
-cp $(pwd)/nginx.conf /etc/nginx/nginx.conf
+cp ./nginx.conf /etc/nginx/nginx.conf
 bash /etc/init.d/php-fastcgi restart
 bash /etc/init.d/nginx restart
 
