@@ -108,6 +108,21 @@ function makeNging {
           #     include fastcgi_params;
           # }
 
+        if ($request_method !~ ^(GET|HEAD|POST|PUT|DELETE)$ ) {
+            return 424;
+         }
+
+         if ($http_user_agent ~* LWP::Simple|BBBike|msnbot|scrapbot) {
+            return 403;
+         }
+
+         if ( $http_referer ~* (babes|forsale|girl|jewelry|love|nudit|organic|poker|porn|sex|teen) ) {
+            return 403;
+         }
+
+        location = /favicon.ico { access_log off; log_not_found off; }
+        location = /robots.txt { access_log off; log_not_found off; }
+        location ~ /\. { deny  all; access_log off; log_not_found off; }
 
 
         ### ======================= SSL =========
