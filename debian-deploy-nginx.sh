@@ -5,8 +5,9 @@ if [ "$USER" != "root" ];then
     exit
 fi
 
+apt-get clean
+apt-get autoclean
 apt-get update
-apt-get upgrade
 
 echo "== Installing:"
 apt-get -y --force-yes remove --purge nginx
@@ -86,11 +87,6 @@ server {
           include fastcgi_params;
          }
 
-
-        # Security
-        location ~ /\.ht {
-            deny  all;
-        }
 }
 
 " > "/etc/nginx/sites-enabled/localhost"
@@ -117,6 +113,8 @@ update-rc.d -f bind9 remove
 update-rc.d -f apache2 remove
 
 chmod 755 /etc/init.d/php-fastcgi
+
+cp $(pwd)/nginx.conf /etc/nginx/nginx.conf
 bash /etc/init.d/php-fastcgi restart
 bash /etc/init.d/nginx restart
 
