@@ -1,6 +1,6 @@
 # Debian Install
 
-How to start a new Sever ?
+How to start a new Server ?
 This is a basic installation.
 
 ### OS :
