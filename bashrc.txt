@@ -61,7 +61,6 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-alias ls='ls -Gh'
 alias ll='ls -l'
 alias la='ls -la'
 
