@@ -20,9 +20,4 @@ server {
           include fastcgi_params;
          }
 
-
-        # Security
-        location ~ /\.ht {
-            deny  all;
-        }
 }

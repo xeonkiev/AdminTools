@@ -109,23 +109,6 @@ function makeNging {
           # }
 
 
-          ### ======================= Security =========
-          location ~ /\.ht {
-              deny  all;
-          }
-
-         # if ($request_method !~ ^(GET|HEAD|POST|PUT|D)$ ) {
-         #     return 444;
-         # }
-
-         if ($http_user_agent ~* LWP::Simple|BBBike|msnbot|scrapbot) {
-                return 403;
-         }
-
-         # if ( $http_referer ~* (babes|forsale|girl|jewelry|love|nudit|organic|poker|porn|sex|teen) ) {
-         #     return 403;
-         # }
-
 
         ### ======================= SSL =========
         #listen   443;

@@ -5,8 +5,9 @@ if [ "$USER" != "root" ]; then
 fi
 
 if [ ! -f  "$1" ];then
-    echo "Need your iptables.sh as argument (needed) and un bashrc file (optional)"
+    echo "Need your iptables.sh as argument (needed) and a bashrc file (optional)"
     echo "Example:\n $0 iptables-perso.sh bashrc.txt"
+    exit
 fi
 
 ssh_port_tables="$(awk '/#ssh_port/{print $9}' $1)"
@@ -91,7 +92,11 @@ update-rc.d -f nginx remove >/dev/null 2>>errors-deploiement.log
 update-rc.d -f php5-fpm remove >/dev/null 2>>errors-deploiement.log
 
 echo "- Purge software:"
+apt-get autoremove
+apt-get autoclean
+apt-get clean
 apt-get update
+
 apt-get -y purge ppp
 apt-get -y purge openntpd
 apt-get -y purge ntpdate
@@ -120,12 +125,6 @@ chown -R "$use" "$dir_backup"
 chmod -R 700 "$dir_backup"
 rm -rf /var/lib/mysql
 
-echo "- Secure software:"
-chmod 750 /usr/bin/gcc*
-chmod 750 /usr/bin/make
-chmod 750 /usr/bin/apt-*
-chmod 750 /usr/bin/aptitude*
-chmod 750 /usr/bin/dpkg*
 
 echo "- Fix LANG to US:"
 locale-gen en_US.UTF-8
@@ -139,11 +138,10 @@ apt-get -y install aptitude
 apt-get -y install curl
 apt-get -y install gcc
 apt-get -y install bzip2
+apt-get -y install vim
 apt-get -y install make
 apt-get -y install build-essential bison openssl libreadline6 libreadline6-dev
 apt-get -y install git-core zlib1g zlib1g-dev libssl-dev libyaml-dev libsqlite3-0 libsqlite3-dev sqlite3 libxml2-dev libxslt-dev autoconf libc6-dev ncurses-dev
-
-
 
 echo "- Secure software:"
 chmod 750 /usr/bin/gcc*
@@ -184,13 +182,15 @@ fi
 
 if [ -f "$2" ];then
     echo "- Bashrc:"
-    cat "$2" > /root/.bashrc
-    chown 755 /root/.bashrc
-    if [ -f "/home/$use/.bashrc" ];then
-        cp /root/.bashrc /home/$use/.bashrc
-        chown $use:$use /home/$use/.bashrc
-        chmod 755 /home/$use/.bashrc
-    fi
+
+    cp "$2" /root/.bashrc
+    chown root:root /root/.bashrc
+    chmod 755 /root/.bashrc
+
+    cp "$2" "/home/$use/.bashrc"
+    chown "$use":"$use" "/home/$use/.bashrc"
+    chmod 755 "/home/$use/.bashrc"
+
 fi
 
 echo "- Remove apache sites-enabled:"
@@ -198,14 +198,14 @@ rm /etc/apache2/sites-enabled/*
 rm /etc/nginx/sites-enabled/*
 
 mkdir -p /var/www/
-rm /var/www/*
 echo "" > /var/www/index.html
 
 echo "- Cleaning the system:"
 apt-get -y autoremove
 apt-get -y autoclean
 apt-get -y clean
-
+apt-get -y update
+apt-get -y upgrade
 
 bash /etc/init.d/"$newname"
 

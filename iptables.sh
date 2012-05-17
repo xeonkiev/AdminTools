@@ -79,7 +79,7 @@ $IPTABLES -t filter -A OUTPUT -p tcp -m multiport --dports 20,21 -m state --stat
 # ---------------------------------------------
 # Your zone :
 $IPTABLES -t filter -A INPUT -p tcp --dport 22 -m state --state NEW -j ACCEPT #ssh_port
-$IPTABLES -t filter -A INPUT -p tcp --dport 80 -m state --state NEW -m recent --set
-$IPTABLES -t filter -A INPUT -p tcp --dport 80 -m state --state NEW -m recent --update --seconds 60  --hitcount 60 -j DROP
+# $IPTABLES -t filter -A INPUT -p tcp --dport 80 -m state --state NEW -m recent --name BLACKLIST --set
+# $IPTABLES -t filter -A INPUT -p tcp --dport 80 -m state --state NEW -m recent --name BLACKLIST --update --seconds 60  --hitcount 120 --rttl -j DROP
 $IPTABLES -t filter -A INPUT -p tcp -m multiport --dports 80,443 -m state --state NEW -j ACCEPT
 

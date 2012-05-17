@@ -8,12 +8,13 @@ fi
 apt-get update
 apt-get upgrade
 
-# apt-get -y --force-yes install mysql-server mysql-client
 echo "== Installing:"
 apt-get -y --force-yes remove --purge nginx
 
 apt-get -y install php5-common php5-dev php5-mysql php5-sqlite php5-tidy php5-xmlrpc php5-xsl php5-cgi php5-mcrypt php5-curl php5-gd php5-memcache php5-mhash php5-pspell php5-snmp php5-sqlite libmagick9-dev php5-cli
 apt-get -y install nginx
+
+apt-get -y --force-yes install mysql-server mysql-client
 
 echo '
 #!/bin/bash
