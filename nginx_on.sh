@@ -80,15 +80,15 @@ function makeNging {
               root   $current_folder;
               index  index.html index.htm index.php;
 
-                if (!-e \$request_filename) {
+                if (!-f \$request_filename) {
                     # WORDPRESS
                     # rewrite  ^/(.*)\$  /index.php?q=\$1  last;
 
                     # PERL OR NODE
                     #  proxy_read_timeout 300;
                     #  proxy_pass http://127.0.0.1:3000;
-                    #  proxy_set_header Host $host;
-                    #  proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+                    #  proxy_set_header Host \$host;
+                    #  proxy_set_header X-Forwarded-For \$proxy_add_x_forwarded_for;
                     #  proxy_set_header X-Forwarded-HTTPS 0;
                 }
 
