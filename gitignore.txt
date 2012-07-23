@@ -1,7 +1,7 @@
-#==================================
 # This project :
 
 
+#=================================
 #=================================
 # OS :
 .DS_Store*
@@ -10,6 +10,8 @@
 .settings
 ehthumbs.db
 Icon?
+.Spotlight-V100
+.Trashes
 nbproject
 Thumbs.db
 
@@ -58,8 +60,8 @@ dwsync.xml
 *~
 
 # SQL :
-*.sql
 *.sqlite
+*.sqlite3
 
 # XCODE :
 *~.nib
