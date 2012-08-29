@@ -31,20 +31,10 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
-if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
-fi
+
 unset color_prompt force_color_prompt
 
-case "$TERM" in
-xterm*|rxvt*)
-    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-    ;;
-*)
-    ;;
-esac
+
 
 if [ -f ~/.bash_aliases ]; then
    . ~/.bash_aliases
@@ -52,18 +42,15 @@ fi
 
 if [ -x /usr/bin/dircolors ]; then
     eval "`dircolors -b`"
-    alias ls='ls --color=auto -hXF'
-    alias dir='dir --color=auto'
-    alias vdir='vdir --color=auto'
-
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
 fi
 
-alias ll='ls -l'
-alias la='ls -la'
+alias ls='ls -Gh'
+alias ll='ls -lO'
+alias la='ll -a'
 
+alias grep='grep --color=always'
+alias fgrep='fgrep --color=always'
+alias egrep='egrep --color=always'
 
 if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
@@ -78,6 +65,23 @@ PS1='\
 \[\033[31m\]\w\
 \[\033[00m\]\$\
  '
+LANG="en_US.UTF-8"
+LC_COLLATE="en_US.UTF-8"
+LC_CTYPE="en_US.UTF-8"
+LC_MESSAGES="en_US.UTF-8"
+LC_MONETARY="en_US.UTF-8"
+LC_NUMERIC="en_US.UTF-8"
+LC_TIME="en_US.UTF-8"
+LC_ALL="en_US.UTF-8"
+
+export LANG
+export LC_COLLATE
+export LC_CTYPE
+export LC_MESSAGES
+export LC_MONETARY
+export LC_NUMERIC
+export LC_TIME
+export LC_ALL
 
 if [ -f ~/.rvm/scripts/rvm ];then
     [[ -s ~/.rvm/scripts/rvm ]] && source ~/.rvm/scripts/rvm
