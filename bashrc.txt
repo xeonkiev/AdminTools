@@ -31,9 +31,10 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
+# make less more friendly for non-text input files, see lesspipe(1)
+[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
 unset color_prompt force_color_prompt
-
 
 
 if [ -f ~/.bash_aliases ]; then
@@ -45,7 +46,7 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 alias ls='ls -Gh'
-alias ll='ls -lO'
+alias ll='ls -l'
 alias la='ll -a'
 
 alias grep='grep --color=always'
