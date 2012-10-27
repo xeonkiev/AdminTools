@@ -67,12 +67,12 @@ if [ -f "$2" ];then
 fi
 
 # CLEAN
-echo "" 2>errors-deploiement.log
+echo "" >errors-deploiement.log
 echo " ------------------------------------- "
 echo " Cleaning Debian And Ubuntu Server :"
 
 echo "- Stop all services:"
-/etc/init.d/openntpd stop >/dev/null 2>errors-deploiement.log
+/etc/init.d/openntpd stop >/dev/null 2>>errors-deploiement.log
 /etc/init.d/ntp stop >/dev/null 2>>errors-deploiement.log
 /etc/init.d/portmap stop >/dev/null 2>>errors-deploiement.log
 /etc/init.d/nfs-common stop >/dev/null 2>>errors-deploiement.log

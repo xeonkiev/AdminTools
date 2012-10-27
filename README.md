@@ -1,4 +1,12 @@
-# Debian Install
+# Index 
+
+- [Sed Memo](https://github.com/damln/AdminTools/blob/master/sed_memo.md)
+- [Unix Memo](https://github.com/damln/AdminTools/blob/master/unix_memo.md)
+- [Windows Memo](https://github.com/damln/AdminTools/blob/master/windows_memo.md)
+- [OSX Memo](https://github.com/damln/AdminTools/blob/master/osx_memo.md)
+- [Hotmail fun address](https://github.com/damln/AdminTools/blob/master/hotmail_address.md)
+
+## Debian
 
 
 Every admin / dev have his own deployment system. This are some basics files to inspire you :)
@@ -45,25 +53,9 @@ If you want MYSQL :
     ln -s $(pwd)/src/redis-cli /usr/bin/redis-cli
 
 
-### Ruby
-
-Please do not use root for that :
-
-    curl -L get.rvm.io | bash -s stable
-
-    source ~/.bashrc
-    source ~/.profile
-    
-    sudo chmod 755 /usr/bin/make /usr/bin/gcc
-    
-    rvm pkg install zlib
-    rvm install 1.9.3
-    gem install bundle
-
-
 ### Helpers
 
-###### You can use the nginx_on.sh script for activate some website :
+#### You can use the nginx_on.sh script for activate some website :
 
     bash github/nginx_on.sh /var/www/my_web_site.com/ on
     
@@ -73,66 +65,33 @@ Or Disable :
     bash github/nginx_on.sh /var/www/my_web_site.com/ off
     
 
-###### Disable all Iptables rules :
+#### Disable all Iptables rules :
 
     sudo bash github/iptables-stop.sh
 
-###### Enable them again :
+#### Enable them again :
 
     sudo bash /etc/init.d/iptables
 
-###### A simple .gitignore
+#### A simple .gitignore
 
     cp github/gitignore.txt .gitignore
  
  
-###### A big .htaccess
+#### A big .htaccess
 
     cp github/htaccess.fat.txt .htaccess
     
 
-## OSX
+# Other
 
-### MongoDB
+Google DNS :
+	
+	8.8.8.8
+	8.8.4.4
 
-Install
+OpenDNS :
 
-    brew install mongodb
+	208.67.222.222
+	208.67.220.222
 
-Run at startup.
-    
-    sudo cp github/org.mongodb.mongod.plist ~/Library/LaunchAgents/org.mongodb.mongod.plist 
-       
-    
-    sudo touch /var/log/mongodb.log
-    sudo touch /Users/damln/Work/DBS/mongod.conf
-    
-    sudo chmod 777 /var/log/mongodb.log
-    sudo chmod 755 /Users/damln/Work/DBS/mongod.conf
-    chmod 644 ~/Library/LaunchAgents/org.mongodb.mongod.plist
-    
-    launchctl unload ~/Library/LaunchAgents/org.mongodb.mongod.plist 
-    launchctl load ~/Library/LaunchAgents/org.mongodb.mongod.plist 
-    
-    launchctl stop org.mongodb.mongod.plist
-    launchctl start org.mongodb.mongod.plist
-    
-
-### Redis
-   
-Install 
- 
-    brew install redis
-
-Run at startup.
-    
-    sudo cp github/io.redis.redis-server.plist /Library/LaunchDaemons/io.redis.redis-server.plist
-    sudo chown root:wheel /Library/LaunchDaemons/io.redis.redis-server.plist
-    
-    sudo touch /var/log/redis.log
-    sudo chmod 777 /var/log/redis.log
-    
-    sudo launchctl unload /Library/LaunchDaemons/io.redis.redis-server.plist
-    sudo launchctl load /Library/LaunchDaemons/io.redis.redis-server.plist
-    sudo launchctl stop io.redis.redis-server.plist
-    sudo launchctl start io.redis.redis-server.plist
