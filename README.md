@@ -8,30 +8,26 @@
 
 ## Debian
 
-
 Every admin / dev have his own deployment system. This are some basics files to inspire you :)
 
 Feel free to fork, update, and contribute.
 
 Cheers. ⚓
 
-### OS :
-    
-    # Get the all.sh
-    wget admin.dln.name
-       
-    # Download all the git repo content
-    bash index.html 
-    
-    # Execute the init script with the Iptables and Bashrc
-    bash github/debian-cleaner.sh github/iptables.sh github/bashrc.txt
 
+### Nice bashrc
 
+	cp bashrc.txt .bashrc
+	
+### Clean the Debian
+
+	bash debian-cleaner.sh
+	
 ### Nginx
 
 This will install NGinx with PHP5 and FastCGI.
 
-    bash github/debian-deploy-nginx.sh
+    bash debian-deploy-nginx.sh
 
 If you want MYSQL :
     
@@ -39,7 +35,11 @@ If you want MYSQL :
     
 ### MongoDB
 
-    bash github/debian-deploy-mongodb.sh
+    bash debian-deploy-mongodb.sh
+
+### Ruby
+
+	bash debian-deploy-ruby.sh
 
 ### Redis
 
@@ -52,22 +52,20 @@ If you want MYSQL :
     ln -s $(pwd)/src/redis-server /usr/bin/redis-server
     ln -s $(pwd)/src/redis-cli /usr/bin/redis-cli
 
-
 ### Helpers
 
 #### You can use the nginx_on.sh script for activate some website :
 
-    bash github/nginx_on.sh /var/www/my_web_site.com/ on
+    bash nginx_on.sh /var/www/my_web_site.com/ on
     
-
 Or Disable :
 
-    bash github/nginx_on.sh /var/www/my_web_site.com/ off
+    bash nginx_on.sh /var/www/my_web_site.com/ off
     
 
 #### Disable all Iptables rules :
 
-    sudo bash github/iptables-stop.sh
+    sudo bash iptables-stop.sh
 
 #### Enable them again :
 
@@ -75,15 +73,28 @@ Or Disable :
 
 #### A simple .gitignore
 
-    cp github/gitignore.txt .gitignore
+    cp gitignore.txt .gitignore
  
  
 #### A big .htaccess
 
-    cp github/htaccess.fat.txt .htaccess
+    cp htaccess.fat.txt .htaccess
     
+## OSX
+
+### MP3 to CAF
+
+	bash mp3-to-caf.sh .
 
 # Other
+
+## Secure data clean
+Will fill the folder with 500mo random data:
+
+	bash dd.sh /path/to/dead/folder
+
+
+## DNS 
 
 Google DNS :
 	

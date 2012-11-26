@@ -14,6 +14,26 @@ Uninstall Mysql (BACKUP FIRST!) :
 	MSQLCOM=-NO-
 
 
+
+## Files
+Show hidden fils in Finder :
+
+	defaults write com.apple.finder AppleShowAllFiles -bool true
+
+## Resize images to 50%. For non-retina.
+
+	bash resize-50-percent.sh /path/to/*.@2x.png
+
+## Chrome
+Open Chrome with a proxy setting :
+
+	open -a '/Applications/Google Chrome.app' --args --proxy-server=localhost:2222
+
+## XAMPP problem
+If MYSQL needs .sock :
+
+	sudo ln -s /Applications/XAMPP/xamppfiles/var/mysql/mysql.sock /tmp/mysql.sock
+
 ## MongoDB
 
 Install
@@ -22,7 +42,7 @@ Install
 
 Run at startup.
     
-    sudo cp github/org.mongodb.mongod.plist ~/Library/LaunchAgents/org.mongodb.mongod.plist 
+    sudo cp org.mongodb.mongod.plist ~/Library/LaunchAgents/org.mongodb.mongod.plist 
        
     sudo touch /var/log/mongodb.log
     sudo touch /Users/damln/Work/DBS/mongod.conf
@@ -46,7 +66,7 @@ Install
 
 Run at startup.
     
-    sudo cp github/io.redis.redis-server.plist /Library/LaunchDaemons/io.redis.redis-server.plist
+    sudo cp io.redis.redis-server.plist /Library/LaunchDaemons/io.redis.redis-server.plist
     sudo chown root:wheel /Library/LaunchDaemons/io.redis.redis-server.plist
     
     sudo touch /var/log/redis.log
