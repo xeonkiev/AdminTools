@@ -1,4 +1,4 @@
-# Index 
+# Index
 
 - [Sed Memo](https://github.com/damln/AdminTools/blob/master/sed_memo.md)
 - [Unix Memo](https://github.com/damln/AdminTools/blob/master/unix_memo.md)
@@ -18,11 +18,11 @@ Cheers. ⚓
 ### Nice bashrc
 
 	cp bashrc.txt .bashrc
-	
+
 ### Clean the Debian
 
 	bash debian-cleaner.sh
-	
+
 ### Nginx
 
 This will install NGinx with PHP5 and FastCGI.
@@ -30,9 +30,9 @@ This will install NGinx with PHP5 and FastCGI.
     bash debian-deploy-nginx.sh
 
 If you want MYSQL :
-    
+
     apt-get install mysql-server mysql-client
-    
+
 ### MongoDB
 
     bash debian-deploy-mongodb.sh
@@ -57,11 +57,11 @@ If you want MYSQL :
 #### You can use the nginx_on.sh script for activate some website :
 
     bash nginx_on.sh /var/www/my_web_site.com/ on
-    
+
 Or Disable :
 
     bash nginx_on.sh /var/www/my_web_site.com/ off
-    
+
 
 #### Disable all Iptables rules :
 
@@ -74,12 +74,12 @@ Or Disable :
 #### A simple .gitignore
 
     cp gitignore.txt .gitignore
- 
- 
+
+
 #### A big .htaccess
 
     cp htaccess.fat.txt .htaccess
-    
+
 ## OSX
 
 ### MP3 to CAF
@@ -87,17 +87,24 @@ Or Disable :
 	bash mp3-to-caf.sh .
 
 # Other
+## Local SMTP server for debug.
+
+    sudo python -m smtpd -n -c DebuggingServer localhost:25
+
 
 ## Secure data clean
 Will fill the folder with 500mo random data:
 
 	bash dd.sh /path/to/dead/folder
 
+## Clean useless files
 
-## DNS 
+	bash clean.sh /path/to/clean
+
+## DNS
 
 Google DNS :
-	
+
 	8.8.8.8
 	8.8.4.4
 
