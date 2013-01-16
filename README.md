@@ -58,8 +58,8 @@ If you want MYSQL :
 
     make
 
-    ln -s $(pwd)/src/redis-server /usr/bin/redis-server
-    ln -s $(pwd)/src/redis-cli /usr/bin/redis-cli
+    sudo ln -s $(pwd)/src/redis-server /usr/bin/redis-server
+    sudo ln -s $(pwd)/src/redis-cli /usr/bin/redis-cli
 
 ### Helpers
 
