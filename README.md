@@ -1,13 +1,5 @@
 # Index
 
-- [Sed Memo](https://github.com/damln/AdminTools/blob/master/sed_memo.md)
-- [Unix Memo](https://github.com/damln/AdminTools/blob/master/unix_memo.md)
-- [Windows Memo](https://github.com/damln/AdminTools/blob/master/windows_memo.md)
-- [OSX Memo](https://github.com/damln/AdminTools/blob/master/osx_memo.md)
-- [Hotmail fun address](https://github.com/damln/AdminTools/blob/master/hotmail_address.md)
-- [Big htaccess](https://github.com/damln/AdminTools/blob/master/htaccess.fat.txt)
-- [A simple .gitignore](https://github.com/damln/AdminTools/blob/master/gitignore.txt)
-
 ## Debian / Ubuntu
 
 Every admin / dev have his own deployment system. This are some basics files to inspire you :)
@@ -87,10 +79,13 @@ Or Disable :
 	bash mp3-to-caf.sh .
 
 # Other
-## Local SMTP server for debug.
+## Local SMTP server for debug
 
     sudo python -m smtpd -n -c DebuggingServer localhost:25
 
+## Local HTTP server
+
+    python -m SimpleHTTPServer 8080
 
 ## Secure data clean
 Will fill the folder with 500mo random data:
