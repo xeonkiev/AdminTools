@@ -15,6 +15,12 @@ Feel free to fork, update, and contribute.
 Cheers. ⚓
 
 
+### First commands
+
+    sudo apt-get install git
+    ssh-keygen
+    git clone git://github.com/damln/AdminTools.git
+
 ### Nice bashrc
 
 	cp bashrc.txt .bashrc

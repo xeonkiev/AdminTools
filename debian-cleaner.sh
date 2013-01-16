@@ -4,12 +4,6 @@ if [ "$USER" != "root" ]; then
     exit
 fi
 
-if [ ! -f  "$1" ];then
-    echo "Need your iptables.sh as argument (needed) and a bashrc file (optional)"
-    echo "Example:\n $0 iptables-perso.sh bashrc.txt"
-    exit
-fi
-
 ssh_port_tables="$(awk '/#ssh_port/{print $9}' $1)"
 ssh_port_config="$(awk '/Port/{print $2}' /etc/ssh/sshd_config)"
 
