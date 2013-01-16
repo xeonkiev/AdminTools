@@ -5,8 +5,10 @@
 - [Windows Memo](https://github.com/damln/AdminTools/blob/master/windows_memo.md)
 - [OSX Memo](https://github.com/damln/AdminTools/blob/master/osx_memo.md)
 - [Hotmail fun address](https://github.com/damln/AdminTools/blob/master/hotmail_address.md)
+- [Big htaccess](https://github.com/damln/AdminTools/blob/master/htaccess.fat.txt)
+- [A simple .gitignore](https://github.com/damln/AdminTools/blob/master/gitignore.txt)
 
-## Debian
+## Debian / Ubuntu
 
 Every admin / dev have his own deployment system. This are some basics files to inspire you :)
 
@@ -20,7 +22,7 @@ Cheers. ⚓
     ssh-keygen
     git clone git://github.com/damln/AdminTools.git
 
-### Nice bashrc
+### bashrc
 
 	cp bashrc.txt .bashrc
 
@@ -75,15 +77,6 @@ Or Disable :
 #### Enable them again :
 
     sudo bash /etc/init.d/iptables
-
-#### A simple .gitignore
-
-    cp gitignore.txt .gitignore
-
-
-#### A big .htaccess
-
-    cp htaccess.fat.txt .htaccess
 
 ## OSX
 
