@@ -168,6 +168,7 @@ locale-gen en_US.UTF-8
 
 update-rc.d -f ssh start 30 1 2 3 4 5 . stop 30 0 6 .
 
+apt-get -y install htop
 apt-get -y install screen
 apt-get -y install sudo
 apt-get -y install aptitude
