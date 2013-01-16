@@ -2,14 +2,12 @@
 
 ## Modules
 
-
     modinfo [module]    # info on a module
     modprobe -a [module]     # manually load a module
     modprobe -r [module]    # manually unload a module
     modprobe -l    # list kernel modules
     lsmod          # list loaded kernel modules
     
-
 File to put blacklist modules :
 
 	/etc/modprobe.d/blacklist  # liste des m
@@ -133,7 +131,6 @@ Somes services :
     fetchmail        # email receiver
     inetd    # look to /etc/inetd.conf
     
-
 ## CPU
 
 Set CPU power :
@@ -151,7 +148,6 @@ userpace : choice the frequence by scaling-set
 Get actual CPU speed :
 
 	cat /proc/cpuinfo | grep MHz
-
 
 ## USB problem 
 
@@ -199,8 +195,6 @@ Create a 10G qemu image disk :
 Info on disk mount :
 
 	tune2fs -l /dev/sdc6 | grep Max
-
-
 
 ## Sound
 
@@ -267,8 +261,4 @@ Capture Streaming Audio :
 	
 	sudo apt-get install streamripper
 	streamripper [URL:PORT] -d [directorty to extract, default=here]
-
-Remove TMP files :
-
-	find . -name '*~' -exec rm {} \;
 

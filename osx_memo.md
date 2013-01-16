@@ -13,8 +13,6 @@ Uninstall Mysql (BACKUP FIRST!) :
 	
 	MSQLCOM=-NO-
 
-
-
 ## Files
 Show hidden fils in Finder :
 
@@ -57,7 +55,6 @@ Run at startup.
     launchctl stop org.mongodb.mongod.plist
     launchctl start org.mongodb.mongod.plist
     
-
 ## Redis
    
 Install
@@ -76,4 +73,3 @@ Run at startup.
     sudo launchctl load /Library/LaunchDaemons/io.redis.redis-server.plist
     sudo launchctl stop io.redis.redis-server.plist
     sudo launchctl start io.redis.redis-server.plist
-

@@ -14,7 +14,6 @@ Feel free to fork, update, and contribute.
 
 Cheers. ⚓
 
-
 ### First commands
 
     sudo apt-get install git
