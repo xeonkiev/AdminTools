@@ -47,6 +47,8 @@ If you want MYSQL :
 ### Ruby
 
 	bash debian-deploy-ruby.sh
+	
+	# Press 'q' when prompt
 
 ### Redis
 
