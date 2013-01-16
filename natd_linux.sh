@@ -1,3 +1,5 @@
+#!/bin/bash
+
 FROM="en1"
 TO="en0"
 
