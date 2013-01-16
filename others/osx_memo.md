@@ -20,7 +20,7 @@ Show hidden fils in Finder :
 
 ## Resize images to 50%. For non-retina.
 
-	bash resize-50-percent.sh /path/to/*.@2x.png
+	bash ../tools/osx-resize-50-percent.sh /path/to/*.@2x.png
 
 ## Chrome
 Open Chrome with a proxy setting :
@@ -40,7 +40,7 @@ Install
 
 Run at startup.
     
-    sudo cp org.mongodb.mongod.plist ~/Library/LaunchAgents/org.mongodb.mongod.plist 
+    sudo cp ../configurations/org.mongodb.mongod.plist ~/Library/LaunchAgents/org.mongodb.mongod.plist 
        
     sudo touch /var/log/mongodb.log
     sudo touch /Users/damln/Work/DBS/mongod.conf
@@ -63,7 +63,8 @@ Install
 
 Run at startup.
     
-    sudo cp io.redis.redis-server.plist /Library/LaunchDaemons/io.redis.redis-server.plist
+    sudo cp ../configurations/io.redis.redis-server.plist /Library/LaunchDaemons/io.redis.redis-server.plist
+    
     sudo chown root:wheel /Library/LaunchDaemons/io.redis.redis-server.plist
     
     sudo touch /var/log/redis.log
