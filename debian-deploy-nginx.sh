@@ -5,17 +5,26 @@ if [ "$USER" != "root" ];then
     exit
 fi
 
+# Add good paquet
+line="deb http://ppa.launchpad.net/nginx/stable/ubuntu $(lsb_release -cs) main"
+previous=$(grep "$line" /etc/apt/sources.list)
+
+if [[ "$previous" == "" ]]; then
+    echo "$line" >> /etc/apt/sources.list
+fi
+
+apt-key adv --keyserver keyserver.ubuntu.com --recv-keys C300EE8C
 apt-get clean
 apt-get autoclean
 apt-get update
 
 echo "== Installing:"
+apt-get -y remove nginx-common
 apt-get -y --force-yes remove --purge nginx
 
 apt-get -y install php5-common php5-dev php5-mysql php5-sqlite php5-tidy php5-xmlrpc php5-xsl php5-cgi php5-mcrypt php5-curl php5-gd php5-memcache php5-mhash php5-pspell php5-snmp php5-sqlite libmagick9-dev php5-cli
 
 apt-get -y install nginx
-# apt-get -y --force-yes install mysql-server mysql-client
 
 echo '
 #!/bin/bash
@@ -87,8 +96,11 @@ update-rc.d -f apache2 remove
 
 chmod 755 /etc/init.d/php-fastcgi
 
-cp ./nginx.conf /etc/nginx/nginx.conf
-bash /etc/init.d/php-fastcgi restart
+if [[ -f "./nginx.conf" ]]; then
+    cp ./nginx.conf /etc/nginx/nginx.conf
+fi
+
+bash /etc/init.d/php-fastcgi stop
 bash /etc/init.d/nginx restart
 
 echo "
