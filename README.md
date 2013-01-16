@@ -14,19 +14,15 @@ Cheers. ⚓
     ssh-keygen
     git clone git://github.com/damln/AdminTools.git
 
-### bashrc
-
-	cp bashrc.txt .bashrc
-
 ### Clean the Debian
 
-	bash debian-cleaner.sh
+	bash ./tools/debian-cleaner.sh
 
 ### Nginx
 
 This will install NGinx with PHP5 and FastCGI.
 
-    bash debian-deploy-nginx.sh
+    bash ./tools/debian-deploy-nginx.sh
 
 If you want MYSQL :
 
@@ -34,11 +30,11 @@ If you want MYSQL :
 
 ### MongoDB
 
-    bash debian-deploy-mongodb.sh
+    bash ./tools/debian-deploy-mongodb.sh
 
 ### Ruby
 
-	bash debian-deploy-ruby.sh
+	bash ./tools/debian-deploy-ruby.sh
 	
 	# Press 'q' when prompt
 
@@ -53,31 +49,6 @@ If you want MYSQL :
     sudo ln -s $(pwd)/src/redis-server /usr/bin/redis-server
     sudo ln -s $(pwd)/src/redis-cli /usr/bin/redis-cli
 
-### Helpers
-
-#### You can use the nginx_on.sh script for activate some website :
-
-    bash nginx_on.sh /var/www/my_web_site.com/ on
-
-Or Disable :
-
-    bash nginx_on.sh /var/www/my_web_site.com/ off
-
-
-#### Disable all Iptables rules :
-
-    sudo bash iptables-stop.sh
-
-#### Enable them again :
-
-    sudo bash /etc/init.d/iptables
-
-## OSX
-
-### MP3 to CAF
-
-	bash mp3-to-caf.sh .
-
 # Other
 ## Local SMTP server for debug
 
@@ -86,15 +57,6 @@ Or Disable :
 ## Local HTTP server
 
     python -m SimpleHTTPServer 8080
-
-## Secure data clean
-Will fill the folder with 500mo random data:
-
-	bash dd.sh /path/to/dead/folder
-
-## Clean useless files
-
-	bash clean.sh /path/to/clean
 
 ## DNS
 
