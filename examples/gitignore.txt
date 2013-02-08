@@ -1,22 +1,7 @@
-# This project :
+# PUT YOURS HERE :
 
 
-#=================================
-#=================================
-# OS :
-._.*
-.DS_Store*
-.cache
-.project
-.settings
-ehthumbs.db
-Icon?
-.Spotlight-V100
-.Trashes
-nbproject
-Thumbs.db
-
-# COMPRESS :
+# OTHERS -------------------------
 *.7z
 *.dmg
 *.gz
@@ -25,22 +10,10 @@ Thumbs.db
 *.rar
 *.tar
 *.zip
+*.sqlite
+*.sqlite3
 
-# KOMODO
-*.komodoproject
-.komodotools
-
-# DREAMWEAVER :
-_notes
-dwsync.xml
-
-# VERSIONS
-.hg
-.svn
-.CVS
-.idea
-
-# BINARY / GENERATED :
+# BINARY / GENERATED --------------
 *.com
 *.class
 *.dll
@@ -55,16 +28,27 @@ dwsync.xml
 *.orig
 *.rej
 *.swo
-*.swp
+*.bak
 *.vi
 *.log
 *~
 
-# SQL :
-*.sqlite
-*.sqlite3
+# OS ---------------------
+._.*
+.DS_Store*
+.cache
+.project
+.settings
+ehthumbs.db
+Icon?
+.Spotlight-V100
+.Trashes
+nbproject
+Thumbs.db
 
+# IDE -------------------
 # XCODE :
+
 *~.nib
 *.pbxuser
 *.perspective
@@ -73,3 +57,17 @@ dwsync.xml
 xcuserdata/
 *.mode1v3
 *.mode2v3
+
+# KOMODO
+*.komodoproject
+.komodotools
+
+# DREAMWEAVER :
+_notes
+dwsync.xml
+
+# VERSIONS
+.hg
+.svn
+.CVS
+.idea
