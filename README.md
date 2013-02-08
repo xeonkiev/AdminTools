@@ -53,6 +53,17 @@ If you want MYSQL :
     sudo ln -s $(pwd)/src/redis-server /usr/bin/redis-server
     sudo ln -s $(pwd)/src/redis-cli /usr/bin/redis-cli
 
+
+### File recover
+
+	brew install foremost
+	
+	# OR
+	
+	sudo apt-get install foremost
+	
+	foremost -a -w -i /dev/sda1 -o ./output_dir
+	
 # Other
 ## Local SMTP server for debug
 
@@ -63,6 +74,10 @@ If you want MYSQL :
     python -m SimpleHTTPServer 8080
 
 ## DNS
+
+My ip :
+
+	curl -s checkip.dyndns.org | grep -Eo '[0-9\.]+'
 
 Google DNS :
 
