@@ -84,6 +84,5 @@ export LC_NUMERIC
 export LC_TIME
 export LC_ALL
 
-if [ -f ~/.rvm/scripts/rvm ];then
-    [[ -s ~/.rvm/scripts/rvm ]] && source ~/.rvm/scripts/rvm
-fi
+
+[[ -s ~/.rvm/scripts/rvm ]] && source ~/.rvm/scripts/rvm
