@@ -9,7 +9,7 @@
     <string>/usr/local/bin/mongodump</string>
     <string>run</string>
     <string>--config</string>
-    <string>/Users/damln/Work/DBS/mongod.conf</string>
+    <string>/PATH/TO/mongodb.conf</string>
   </array>
 
   <key>RunAtLoad</key>
