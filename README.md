@@ -73,7 +73,7 @@ If you want MYSQL :
 
     python -m SimpleHTTPServer 8080
 
-## DNS
+## IP things
 
 My ip :
 
