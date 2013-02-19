@@ -10,7 +10,7 @@ Every admin / dev have his own deployment system. This are some basics files to 
 
 Feel free to fork, update, and contribute.
 
-Cheers. ⚓
+Cheers.
 
 ### First commands
 
