@@ -1,7 +1,6 @@
 # Index
 
 - [See configurations](https://github.com/damln/AdminTools/tree/master/configurations)
-- [See examples](https://github.com/damln/AdminTools/tree/master/examples)
 - [See tools](https://github.com/damln/AdminTools/tree/master/tools)
 
 ## Debian / Ubuntu
