@@ -13,6 +13,11 @@ Uninstall Mysql (BACKUP FIRST!) :
 	
 	MSQLCOM=-NO-
 
+## Google sync less 
+Sync contact every hour
+	
+	defaults write ~/Library/LaunchAgents/com.google.GoogleContactSyncAgent StartInterval -int 3600
+	
 ## Files
 Show hidden fils in Finder :
 
