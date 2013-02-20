@@ -32,6 +32,53 @@ If MYSQL needs .sock :
 
 	sudo ln -s /Applications/XAMPP/xamppfiles/var/mysql/mysql.sock /tmp/mysql.sock
 
+## RVM (Ruby)
+[rvm](https://rvm.io/) : 
+
+	curl -L https://get.rvm.io | bash -s stable --ruby
+	
+	source ~/.bash_profile
+	rvm install 1.9.3
+	rvm alias create default 1.9.3
+
+	rvm use 1.9.3 --default
+	gem install compass
+	gem install rb-fsevent
+	gem install guard
+	gem install guard-shell
+	gem install debugger-ruby_core_source
+	gem install debugger-linecache
+	
+## Homebrew
+[homebrew](http://mxcl.github.com/homebrew/) : 
+
+	ruby -e "$(curl -fsSkL raw.github.com/mxcl/homebrew/go)"
+	
+	brew update
+	brew tap homebrew/dupes
+	
+	brew install autoconf automake apple-gcc42 libtool pkg-config openssl readline libyaml sqlite libxml2 libxslt libksba
+	
+	brew install libksba
+	brew install mongodb
+	brew install redis
+	brew install mysql
+	brew install imagemagick
+	brew install ffmpeg
+	brew install nodejs
+	brew install optipng
+	brew install libjpeg
+	brew install phantomjs
+	
+	brew install bash curl git
+	
+## RMagick :
+	
+	cd /usr/local/Cellar/imagemagick/6.8.0-10/lib
+	ln -s libMagick++-Q16.7.dylib   libMagick++.dylib
+	ln -s libMagickCore-Q16.7.dylib libMagickCore.dylib
+	ln -s libMagickWand-Q16.7.dylib libMagickWand.dylib
+	
 ## MongoDB
 
 Install
