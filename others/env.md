@@ -15,6 +15,7 @@ Extensions :
 - [XML tree](https://chrome.google.com/webstore/detail/xml-tree/gbammbheopgpmaagmckhpjbfgdfkpadb/related?hl=en)
 - [JSON formatter](https://chrome.google.com/webstore/detail/json-formatter/bcjindcccaagfpapjjmafapmmgkkhgoa/details?hl=en)
 - [HTTPS](https://chrome.google.com/webstore/detail/https-everywhere/gcbommkclmclpchllfjekcdonpmejbdp?hl=en)
+- [Chime notification](https://chrome.google.com/webstore/detail/chime/lkdfkbkkfdhhfnhgbphecddnpfnoedke?hl=en)
 
 Low :
 
