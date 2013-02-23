@@ -2,10 +2,10 @@
 
 Get the script:
 
-    curl -L https://raw.github.com/damln/AdminTools/master/vpn/server.sh > server-vpn-install.sh
+    curl -L https://raw.github.com/damln/AdminTools/master/vpn/server-vpn-install.sh > server-vpn-install.sh
 
 Change the user and passwords inside the script:
-
+	
 	vi server-vpn-install.sh
 
 Run the script:
@@ -13,17 +13,17 @@ Run the script:
 	sudo bash server-vpn-install.sh
 
 Choose when prompted `Use an X.509 certificate for this host?`:
-
+	
 	yes
-
+	
 Choose when prompted `Methods for using a X.509 certificate to authenticate this host`:
-
+	
 	create
-
+	
 Choose when prompted `Create a self-signed X.509 certificate?` :
 
 	yes
-
+	
 # Configure your Mac
 
 Create a new VPN entry:
