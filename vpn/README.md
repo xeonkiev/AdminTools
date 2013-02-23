@@ -28,7 +28,7 @@ Choose when prompted `Create a self-signed X.509 certificate?` :
 
 Create a new VPN entry:
 
-- System Preference
+- System Preferences
 - Network
 - In left column, "+" (Create a new service)
 - Interface  VPN
