@@ -21,6 +21,7 @@ And chosse this :
 	SideBarEnhancements
 	CTags
 	GitGutter
+	ColorPicker
 	
 	Emmet
 	Emmet Css Snippets
@@ -29,6 +30,7 @@ And chosse this :
 	
 	CoffeeScript
 	JsFormat
+	Lazy Backbone.js
 	
 	HAML
 	Rails Related Files
