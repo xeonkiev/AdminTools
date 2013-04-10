@@ -4,28 +4,37 @@
 Go to : View > Show Console
 Copy/Paste :
 
-  import urllib2,os; pf='Package Control.sublime-package'; ipp=sublime.installed_packages_path(); os.makedirs(ipp) if not os.path.exists(ipp) else None; urllib2.install_opener(urllib2.build_opener(urllib2.ProxyHandler())); open(os.path.join(ipp,pf),'wb').write(urllib2.urlopen('http://sublime.wbond.net/'+pf.replace(' ','%20')).read()); print 'Please restart Sublime Text to finish installation'
+	import urllib2,os; pf='Package Control.sublime-package'; ipp=sublime.installed_packages_path(); os.makedirs(ipp) if not os.path.exists(ipp) else None; urllib2.install_opener(urllib2.build_opener(urllib2.ProxyHandler())); open(os.path.join(ipp,pf),'wb').write(urllib2.urlopen('http://sublime.wbond.net/'+pf.replace(' ','%20')).read()); print 'Please restart Sublime Text to finish installation'
 
 ## Install package
-- CMD + p
+
+- CMD + SHIFT + P
 - "Install Package"
 
 And chosse this :
-
+	
 	BracketHighlighter
-	Sass
 	AllAutocomplete
-	Rails Related Files
-	ERB Insert and Toggle Commands
 	DetectSyntax
 	Color Highlighter
-	Goto-CSS-Declaration
+	SublimeLinter
 	SideBarEnhancements
-	Theme - Soda
+	CTags
+	GitGutter
+	
 	Emmet
 	Emmet Css Snippets
-	SublimeCodeIntel
+	Sass
+	Goto-CSS-Declaration
+	
+	CoffeeScript
 	JsFormat
+	
+	HAML
+	Rails Related Files
+	ERB Insert and Toggle Commands
+	
+	Theme - Soda
 	
 ## Alias
 
