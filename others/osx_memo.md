@@ -1,3 +1,13 @@
+## Stuff
+
+Install pygments :
+
+	sudo easy_install Pygments
+	
+Then, alias in bash :
+
+	echo "alias c='pygmentize -O style=monokai -f console256 -g'" >> ~/.bash_profile
+
 ## Network
 
 Flush cache :
