@@ -57,11 +57,12 @@ And chosse this :
 	
 	BracketHighlighter
 	AllAutocomplete
-	DetectSyntax
+	ApplySyntax
 	Color Highlighter
 	SublimeLinter
 	SideBarEnhancements
 	CTags
+	Git
 	GitGutter
 	ColorPicker
 	
