@@ -117,6 +117,8 @@ Run at startup.
     launchctl stop org.mongodb.mongod.plist
     launchctl start org.mongodb.mongod.plist
     
+    launchctl unload -w /System/Library/LaunchAgents/com.apple.CalendarAgent.plist
+    
 ## Redis
    
 Install
