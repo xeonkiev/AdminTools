@@ -11,7 +11,7 @@ if [[ ! -d "$1" ]]; then
     exit 0
 fi
 
-find "$1" -name ".DS_Store" -type f -exec rm '{}' \;
+#find "$1" -name ".DS_Store" -type f -exec rm '{}' \;
 find "$1" -name ".Trashes" -exec rm -rf '{}' \;
 find "$1" -name ".fseventsd" -type d -exec rm -rf '{}' \;
 find "$1" -name ".Spotlight*" -type d -exec rm -rf '{}' \;
